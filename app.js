@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 const express = require("express");
+const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -10,6 +11,9 @@ const dbConnect = require("./db/dbConnect");
 const User = require("./db/userModel");
 // execute database connection 
 dbConnect();
+
+// allow access
+app.use(cors());
 
 // body parser configuration
 app.use(bodyParser.json());
